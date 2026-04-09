@@ -66,48 +66,48 @@ export default function Servicios() {
       <Navbar />
       <BackgroundBlobs />
 
-      {/* HERO */}
-      <section className="pt-[140px] pb-16">
-        <div className="max-w-[1100px] mx-auto px-6 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-extrabold uppercase tracking-wider">
-            <span className="material-symbols-outlined text-sm">verified</span>
-            Servicios Bitify
+      /* HERO */
+        <section className="pt-[140px] pb-16">
+          <div className="max-w-[1100px] mx-auto px-6 text-center">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-extrabold uppercase tracking-wider">
+          <span className="material-symbols-outlined text-sm">verified</span>
+          Servicios Bitify
+            </div>
+
+            <h1 className="mt-6 text-4xl sm:text-5xl font-black leading-[1.05] tracking-[-0.04em]">
+          Creamos experiencias digitales{" "}
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600">
+            que sí generan valor
+          </span>
+            </h1>
+
+            <p className="mt-5 text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
+          Desde una landing que convierte, hasta un sistema completo con dashboard,
+          roles, reportes e integraciones. Todo con enfoque en rendimiento,
+          claridad y crecimiento real.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3 justify-center">
+          <a
+            href="/contacto"
+            className="h-12 px-7 rounded-full bg-gradient-to-r from-primary to-blue-600 text-white font-extrabold shadow-[0_0_30px_rgba(19,164,236,0.4)] hover:shadow-[0_0_40px_rgba(19,164,236,0.6)] hover:translate-y-[-2px] transition-all duration-300 inline-flex items-center justify-center gap-2 border border-primary/20"
+          >
+            <span className="material-symbols-outlined text-[20px]">rocket_launch</span>
+            Pedir cotización
+          </a>
+
+          <a
+            href="/proyectos"
+            className="h-12 px-7 rounded-full bg-white/70 dark:bg-white/10 border border-slate-200/70 dark:border-slate-700/60 font-bold text-slate-900 dark:text-slate-100 hover:bg-white/90 dark:hover:bg-white/20 hover:border-primary/60 hover:translate-y-[-2px] transition-all duration-300 inline-flex items-center justify-center gap-2"
+          >
+            <span className="material-symbols-outlined text-[20px]">work</span>
+            Ver proyectos
+          </a>
+            </div>
           </div>
+        </section>
 
-          <h1 className="mt-6 text-4xl sm:text-5xl font-black leading-[1.05] tracking-[-0.04em]">
-            Creamos experiencias digitales{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600">
-              que sí generan valor
-            </span>
-          </h1>
-
-          <p className="mt-5 text-lg sm:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            Desde una landing que convierte, hasta un sistema completo con dashboard,
-            roles, reportes e integraciones. Todo con enfoque en rendimiento,
-            claridad y crecimiento real.
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-3 justify-center">
-            <a
-              href="/contacto"
-              className="h-12 px-6 rounded-full bg-primary text-white font-extrabold shadow-[0_0_30px_rgba(19,164,236,0.35)] hover:translate-y-[-1px] transition inline-flex items-center justify-center gap-2"
-            >
-              <span className="material-symbols-outlined text-[20px]">rocket_launch</span>
-              Pedir cotización
-            </a>
-
-            <a
-              href="/proyectos"
-              className="h-12 px-6 rounded-full bg-white/70 dark:bg-white/10 border border-slate-200/70 dark:border-slate-700/60 font-bold text-slate-900 dark:text-slate-100 hover:border-primary/40 transition inline-flex items-center justify-center gap-2"
-            >
-              <span className="material-symbols-outlined text-[20px]">work</span>
-              Ver proyectos
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICES */}
+        {/* SERVICES */}
       <section className="pb-20">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="text-center mb-10">

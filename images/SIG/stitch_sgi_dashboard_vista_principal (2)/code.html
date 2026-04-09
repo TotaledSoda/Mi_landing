@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SGI System - Usuarios</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-dim": "#740ec2",
+              "error-dim": "#a70138",
+              "on-tertiary-fixed-variant": "#6e1354",
+              "on-primary-container": "#0a0081",
+              "on-error": "#ffefef",
+              "error": "#b41340",
+              "secondary-fixed-dim": "#dbb4ff",
+              "tertiary-dim": "#882a69",
+              "secondary-container": "#e5c6ff",
+              "on-surface-variant": "#535b71",
+              "on-primary-fixed": "#000000",
+              "inverse-surface": "#060e20",
+              "surface-container": "#e2e7ff",
+              "inverse-primary": "#8083ff",
+              "on-background": "#272e42",
+              "on-secondary-fixed": "#4f0089",
+              "tertiary-fixed-dim": "#ef81c4",
+              "error-container": "#f74b6d",
+              "primary": "#4647d3",
+              "primary-dim": "#3939c7",
+              "background": "#060e20",
+              "on-secondary-fixed-variant": "#7511c3",
+              "on-tertiary-fixed": "#3b002b",
+              "on-error-container": "#510017",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-container": "#63054a",
+              "tertiary": "#963776",
+              "surface-dim": "#c7d4fa",
+              "inverse-on-surface": "#959cb5",
+              "outline": "#6f768e",
+              "on-tertiary": "#ffeef4",
+              "tertiary-container": "#ff8ed2",
+              "surface": "#060e20",
+              "on-surface": "#dee5ff",
+              "on-primary": "#f4f1ff",
+              "surface-variant": "#d1dcff",
+              "surface-tint": "#4647d3",
+              "primary-fixed-dim": "#8387ff",
+              "surface-container-high": "#141f38",
+              "secondary-fixed": "#e5c6ff",
+              "on-primary-fixed-variant": "#0e009d",
+              "on-secondary-container": "#6900b4",
+              "tertiary-fixed": "#ff8ed2",
+              "on-secondary": "#fbefff",
+              "primary-container": "#9396ff",
+              "surface-bright": "#f6f6ff",
+              "surface-container-low": "#091328"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #060e20;
+            color: #dee5ff;
+            font-family: 'Manrope', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(15, 25, 48, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(64, 72, 93, 0.15);
+        }
+        .lume-metric-glow {
+            background: radial-gradient(circle at top left, rgba(163, 166, 255, 0.08) 0%, transparent 70%);
+        }
+    </style>
+</head>
+<body class="antialiased">
+<!-- SideNavBar (Authority: JSON & Design System) -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#091328] flex flex-col py-6 px-4 space-y-2">
+<div class="mb-10 px-4 flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-on-primary">shield</span>
+</div>
+<div>
+<h1 class="text-lg font-bold text-[#dee5ff] font-headline tracking-tight">SGI System</h1>
+<p class="text-[0.7rem] text-[#40485d] font-medium uppercase tracking-widest">Enterprise Portal</p>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#40485d] hover:text-[#dee5ff] hover:bg-[#141f38] transition-all cursor-pointer duration-300" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium text-[0.85rem]">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#40485d] hover:text-[#dee5ff] hover:bg-[#141f38] transition-all cursor-pointer duration-300" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-medium text-[0.85rem]">Documents</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#a3a6ff] border-l-2 border-[#a3a6ff] bg-gradient-to-r from-[#a3a6ff]/10 to-transparent transition-all cursor-pointer duration-300" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-medium text-[0.85rem]">Users</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#40485d] hover:text-[#dee5ff] hover:bg-[#141f38] transition-all cursor-pointer duration-300" href="#">
+<span class="material-symbols-outlined">assessment</span>
+<span class="font-medium text-[0.85rem]">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-xl text-[#40485d] hover:text-[#dee5ff] hover:bg-[#141f38] transition-all cursor-pointer duration-300" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-medium text-[0.85rem]">Settings</span>
+</a>
+</nav>
+<div class="mt-auto px-4 py-4 rounded-2xl bg-[#141f38]/40 lume-metric-glow">
+<div class="flex items-center gap-3 mb-3">
+<img alt="Admin Avatar" class="w-10 h-10 rounded-full object-cover border border-primary/20" data-alt="portrait of a professional male administrator in a modern office setting with soft cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBujNQWlaNHXKnEkfbjAjSoQ-xl71Sh7AtVD-QuLuL47DGSYrkVU1Sl61AE3_S0ffe5SEoIRZ3QmVohkMPHCJV7Abtg9PPAxYtp1YFmLNUcL2g57nISp1hhguwqFxg5XaL53ArB9rKma3_Z2Jwxlfn-Wkw2N5IlLqtFA8J11CVitiVGFMYI7zYyX7Mr_CHPlHZLzVR_xbs1hHI2Yhsv8JhVx0HdUDeoSq0VuIqfHP19IaAd7I-HVsSfHFmVEvDjl653TEE8pPom-AE"/>
+<div class="overflow-hidden">
+<p class="text-sm font-semibold truncate">Ricardo Alva</p>
+<p class="text-[0.7rem] text-[#40485d] font-medium truncate">Master Admin</p>
+</div>
+</div>
+<button class="w-full flex items-center justify-center gap-2 py-2 text-xs font-semibold text-[#a3a6ff] bg-[#a3a6ff]/5 hover:bg-[#a3a6ff]/10 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-sm">logout</span>
+                Cerrar Sesión
+            </button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 min-h-screen p-10 lg:p-14">
+<!-- Top Navigation (Authority: JSON & Design System) -->
+<header class="flex justify-between items-center w-full mb-12">
+<div>
+<h2 class="text-4xl font-extrabold font-headline text-[#dee5ff] tracking-tight">Usuarios</h2>
+<p class="text-on-surface-variant/60 font-medium mt-1">Gestiona el acceso y roles de tu equipo corporativo.</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2.5 rounded-xl bg-surface-container-low text-[#dee5ff]/70 hover:bg-surface-container-high hover:text-primary transition-all duration-200">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-secondary text-on-primary font-bold rounded-xl shadow-[0_8px_30px_rgb(70,71,211,0.3)] hover:scale-[1.02] active:scale-95 transition-all">
+<span class="material-symbols-outlined">add</span>
+                    + Nuevo usuario
+                </button>
+</div>
+</header>
+<!-- Filters Section -->
+<section class="mb-8 grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
+<div class="md:col-span-6 relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/50">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-3.5 pl-12 pr-4 text-sm text-on-surface focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-[#40485d]" placeholder="Buscar por nombre, email o ID..." type="text"/>
+</div>
+<div class="md:col-span-3">
+<select class="w-full bg-surface-container-low border-none rounded-xl py-3.5 px-4 text-sm text-on-surface focus:ring-2 focus:ring-primary/20 transition-all appearance-none">
+<option value="">Todos los Roles</option>
+<option value="admin">Admin</option>
+<option value="supervisor">Supervisor</option>
+<option value="usuario">Usuario</option>
+</select>
+</div>
+<div class="md:col-span-3">
+<select class="w-full bg-surface-container-low border-none rounded-xl py-3.5 px-4 text-sm text-on-surface focus:ring-2 focus:ring-primary/20 transition-all appearance-none">
+<option value="">Cualquier Estado</option>
+<option value="activo">Activo</option>
+<option value="inactivo">Inactivo</option>
+</select>
+</div>
+</section>
+<!-- Users Table -->
+<section class="surface-container rounded-xl overflow-hidden shadow-2xl border border-outline-variant/5">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="px-6 py-4 text-[0.7rem] uppercase tracking-widest font-bold text-[#40485d]">Usuario</th>
+<th class="px-6 py-4 text-[0.7rem] uppercase tracking-widest font-bold text-[#40485d]">Email</th>
+<th class="px-6 py-4 text-[0.7rem] uppercase tracking-widest font-bold text-[#40485d]">Rol</th>
+<th class="px-6 py-4 text-[0.7rem] uppercase tracking-widest font-bold text-[#40485d]">Estado</th>
+<th class="px-6 py-4 text-[0.7rem] uppercase tracking-widest font-bold text-[#40485d]">Registro</th>
+<th class="px-6 py-4 text-[0.7rem] uppercase tracking-widest font-bold text-[#40485d] text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/5">
+<!-- Row 1 -->
+<tr class="group hover:bg-surface-container-high transition-all duration-200">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<img alt="Carlos Rodriguez" class="w-10 h-10 rounded-full object-cover" data-alt="portrait of a confident man with a short beard against a clean studio background with soft rim light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGugCkGXjUP62VltODIrVHRTjHsDKY-ne0FRgVXVmZ47ub-4WUaf0McxLk_oiycEERvXXkw7Ntk1v4wka8Zs3c1tDZ2jDQGI9Kip_OXcHapyDidjCuuBMf9i5gTAyTjJpsuj-tEx4Zfb9c2NnexzUqZFt7BcPA_i65ZKKx269MN1Juigx6POt1nr-sZJw2Mspj1sYAw9iXoDq2dPrx8OR7x9AGffl-UWgk6LtQudny2X0q9dKabJLHkumfvxONkZVnh6wvo5CxETQ"/>
+<span class="font-semibold text-on-surface">Carlos Rodriguez</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">carlos.r@sgi.com</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full text-[0.65rem] font-bold uppercase bg-secondary/10 text-secondary border border-secondary/20">Admin</span>
+</td>
+<td class="px-6 py-5">
+<span class="flex items-center gap-2 text-[0.7rem] font-bold text-[#4ade80]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#4ade80] shadow-[0_0_8px_#4ade80]"></span>
+                                ACTIVO
+                            </span>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">12 Oct 2023</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="p-2 hover:bg-error/10 text-error rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-surface-container-high transition-all duration-200">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<img alt="Ana Martínez" class="w-10 h-10 rounded-full object-cover" data-alt="happy professional woman with warm smile in a brightly lit modern office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_1t5uZwYNeT_8ap9o_pzsq-JvAFPz25rSniKAcLM2lLYfSe9L_eZr5yAj3400LeAG_TMiQXEDomd2JvKFj-XsjN65woU3B4PNzPdnoTUWdWgZRFkHH4QIG3fvtaIiZAQZRJz7soFtio5lVEkvsL45xGmjqPa0F-ZiMBlEliuNVTqow39tpuJTcQq64j1cXpXewYxmoFx1MgE1T45nil7bw5Bgbcqlbf8yeTn2x4c40GdTTCDUzytzK0zq82rTW-0mHrLeCofZyWc"/>
+<span class="font-semibold text-on-surface">Ana Martínez</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">ana.mtz@sgi.com</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full text-[0.65rem] font-bold uppercase bg-primary/10 text-primary border border-primary/20">Supervisor</span>
+</td>
+<td class="px-6 py-5">
+<span class="flex items-center gap-2 text-[0.7rem] font-bold text-[#4ade80]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#4ade80] shadow-[0_0_8px_#4ade80]"></span>
+                                ACTIVO
+                            </span>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">05 Nov 2023</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="p-2 hover:bg-error/10 text-error rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-surface-container-high transition-all duration-200">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-on-surface-variant">LV</div>
+<span class="font-semibold text-on-surface">Lucas Varela</span>
+</div>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">lucas.v@sgi.com</td>
+<td class="px-6 py-5">
+<span class="px-3 py-1 rounded-full text-[0.65rem] font-bold uppercase bg-[#40485d]/20 text-[#dee5ff]/70 border border-[#40485d]/30">Usuario</span>
+</td>
+<td class="px-6 py-5">
+<span class="flex items-center gap-2 text-[0.7rem] font-bold text-error">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                                INACTIVO
+                            </span>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">21 Ene 2024</td>
+<td class="px-6 py-5 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-primary/10 text-primary rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="p-2 hover:bg-error/10 text-error rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination (Design System Anchor) -->
+<footer class="px-6 py-6 bg-surface-container-low flex justify-between items-center border-t border-outline-variant/5">
+<p class="text-sm text-on-surface-variant font-medium">Mostrando <span class="text-on-surface">1-3</span> de <span class="text-on-surface">24</span> usuarios</p>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 rounded-lg text-sm font-semibold text-[#40485d] hover:text-[#dee5ff] transition-colors cursor-not-allowed">Anterior</button>
+<div class="flex gap-1">
+<button class="w-9 h-9 rounded-lg bg-primary text-on-primary text-sm font-bold shadow-lg">1</button>
+<button class="w-9 h-9 rounded-lg hover:bg-surface-container-high text-on-surface text-sm font-semibold transition-colors">2</button>
+<button class="w-9 h-9 rounded-lg hover:bg-surface-container-high text-on-surface text-sm font-semibold transition-colors">3</button>
+</div>
+<button class="px-4 py-2 rounded-lg text-sm font-semibold text-primary hover:bg-primary/5 transition-colors">Siguiente</button>
+</div>
+</footer>
+</section>
+<!-- Signature Component: The Lume-Metric (System Health) -->
+<section class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="surface-container-high p-6 rounded-xl lume-metric-glow border border-outline-variant/10">
+<div class="flex justify-between items-start mb-4">
+<p class="text-[0.7rem] font-bold uppercase tracking-widest text-[#40485d]">Total Usuarios</p>
+<span class="material-symbols-outlined text-primary">groups</span>
+</div>
+<h3 class="text-4xl font-extrabold font-headline mb-2">1,284</h3>
+<div class="flex items-center gap-2 text-xs font-semibold text-[#4ade80]">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                    +12% este mes
+                </div>
+</div>
+<div class="surface-container-high p-6 rounded-xl border border-outline-variant/10">
+<div class="flex justify-between items-start mb-4">
+<p class="text-[0.7rem] font-bold uppercase tracking-widest text-[#40485d]">Sesiones Activas</p>
+<span class="material-symbols-outlined text-secondary">bolt</span>
+</div>
+<h3 class="text-4xl font-extrabold font-headline mb-2">42</h3>
+<div class="flex items-center gap-2 text-xs font-semibold text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-[#4ade80] animate-pulse"></span>
+                    En tiempo real
+                </div>
+</div>
+<div class="surface-container-high p-6 rounded-xl border border-outline-variant/10 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-5">
+<span class="material-symbols-outlined text-6xl">verified_user</span>
+</div>
+<div class="flex justify-between items-start mb-4">
+<p class="text-[0.7rem] font-bold uppercase tracking-widest text-[#40485d]">Tasa de Seguridad</p>
+<span class="material-symbols-outlined text-tertiary">security</span>
+</div>
+<h3 class="text-4xl font-extrabold font-headline mb-2">99.8%</h3>
+<div class="w-full bg-background/50 h-1.5 rounded-full mt-4 overflow-hidden">
+<div class="bg-gradient-to-r from-primary to-secondary h-full w-[99.8%]"></div>
+</div>
+</div>
+</section>
+</main>
+</body></html>

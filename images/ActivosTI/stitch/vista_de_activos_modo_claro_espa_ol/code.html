@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>InventarioPro - Gestión de Activos</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-on-surface": "#eff1f3",
+                      "error-container": "#ffdad6",
+                      "tertiary-fixed": "#ffdad7",
+                      "surface": "#f7f9fb",
+                      "primary-container": "#10b981",
+                      "on-secondary": "#ffffff",
+                      "surface-container-low": "#f2f4f6",
+                      "error": "#ba1a1a",
+                      "surface-container-high": "#e6e8ea",
+                      "background": "#f7f9fb",
+                      "tertiary": "#a43a3a",
+                      "outline-variant": "#bbcabf",
+                      "on-secondary-container": "#3c6c54",
+                      "on-primary": "#ffffff",
+                      "on-secondary-fixed-variant": "#1e4f3a",
+                      "inverse-surface": "#2d3133",
+                      "tertiary-fixed-dim": "#ffb3af",
+                      "secondary": "#376850",
+                      "primary": "#006c49",
+                      "primary-fixed": "#6ffbbe",
+                      "surface-dim": "#d8dadc",
+                      "secondary-container": "#b7ebce",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-bright": "#f7f9fb",
+                      "on-surface": "#191c1e",
+                      "on-error": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "surface-container-highest": "#e0e3e5",
+                      "primary-fixed-dim": "#4edea3",
+                      "on-primary-container": "#00422b",
+                      "tertiary-container": "#fc7c78",
+                      "on-tertiary-container": "#711419",
+                      "on-surface-variant": "#3c4a42",
+                      "surface-container": "#eceef0",
+                      "on-primary-fixed-variant": "#005236",
+                      "secondary-fixed-dim": "#9ed2b5",
+                      "surface-variant": "#e0e3e5",
+                      "on-tertiary-fixed-variant": "#842225",
+                      "inverse-primary": "#4edea3",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-fixed": "#002113",
+                      "on-primary-fixed": "#002113",
+                      "on-background": "#191c1e",
+                      "on-tertiary-fixed": "#410005",
+                      "outline": "#6c7a71",
+                      "surface-tint": "#006c49",
+                      "secondary-fixed": "#baeed1"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              }
+            },
+          }
+        }
+      </script>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-4 z-50 h-screen w-64 border-r border-[#eceef0]/15 bg-[#f2f4f6] dark:bg-slate-950">
+<div class="mb-10 px-2 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-container rounded-xl flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+</div>
+<div>
+<h1 class="text-lg font-black text-[#191c1e] tracking-tight">Gestión de Activos</h1>
+<p class="font-['Plus_Jakarta_Sans'] uppercase tracking-widest text-[10px] text-on-surface-variant">Admin v1.0</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 text-[#3c4a42] hover:bg-[#eceef0] rounded-lg px-4 py-3 mb-1 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium">Tablero</span>
+</a>
+<!-- Active Tab: Activos -->
+<a class="flex items-center gap-3 bg-[#ffffff] text-[#006c49] font-semibold rounded-lg px-4 py-3 mb-1 translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-medium">Activos</span>
+</a>
+<a class="flex items-center gap-3 text-[#3c4a42] hover:bg-[#eceef0] rounded-lg px-4 py-3 mb-1 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="assignment_ind">assignment_ind</span>
+<span class="font-medium">Asignaciones</span>
+</a>
+<a class="flex items-center gap-3 text-[#3c4a42] hover:bg-[#eceef0] rounded-lg px-4 py-3 mb-1 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="build">build</span>
+<span class="font-medium">Mantenimiento</span>
+</a>
+<a class="flex items-center gap-3 text-[#3c4a42] hover:bg-[#eceef0] rounded-lg px-4 py-3 mb-1 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-medium">Reportes</span>
+</a>
+<a class="flex items-center gap-3 text-[#3c4a42] hover:bg-[#eceef0] rounded-lg px-4 py-3 mb-1 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-medium">Configuración</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-outline-variant/20">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary py-3 px-4 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                Nuevo Activo
+            </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-6 w-full sticky top-0 z-40 w-full h-16 bg-[#ffffff] glass-panel">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-xl focus:ring-2 focus:ring-primary/20 text-sm" placeholder="Buscar activos por nombre o ID..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center text-[#3c4a42] hover:bg-[#f2f4f6] rounded-full transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center text-[#3c4a42] hover:bg-[#f2f4f6] rounded-full transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<div class="h-8 w-px bg-outline-variant/30 mx-2"></div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p class="text-xs font-bold text-on-surface">Admin Usuario</p>
+<p class="text-[10px] uppercase tracking-wider text-on-surface-variant">Super Administrador</p>
+</div>
+<img alt="Avatar" class="w-10 h-10 rounded-xl object-cover" data-alt="professional headshot of a smiling middle-aged male administrator with a neutral studio background and soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpcnuiK9DS5dSsVBh4nQUtOusV5f0aQGvjxIiA5hXQ8gcLEU5v_MsUN1SLYCP-CYH8qykloH0csyZk2d4JcVecVADj2CA5IfmPHc2qYqY838oAljOum50dsMcC_5gZuRxf7rXUhH-tf6JiANnJ9RMluXaDd9OJXj4oTokyeQbyFEThFpDxTx5w-pVny6C83xWFYiOeG-oK3DWc4eSsRCcuodBNFaPcUhLQmco5yYNnJT491i3FFshLp3-KkyMQcd_slqtl7IZNwUA"/>
+</div>
+</div>
+</header>
+<div class="p-8">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+<div>
+<h2 class="text-3xl font-extrabold text-on-surface tracking-tight mb-1">Activos</h2>
+<p class="text-on-surface-variant text-sm">Gestione y supervise el inventario de activos de la empresa en tiempo real.</p>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary py-2.5 px-6 rounded-xl font-bold flex items-center gap-2 shadow-md shadow-primary/10 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+                    + Agregar Nuevo Activo
+                </button>
+</div>
+<!-- Bento Grid Summary Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant/10 relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/5 rounded-full group-hover:scale-110 transition-transform duration-500"></div>
+<div class="flex items-start justify-between mb-4">
+<div class="p-3 bg-primary-container/10 rounded-xl text-primary">
+<span class="material-symbols-outlined text-3xl" data-icon="inventory">inventory</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary">+2.4% este mes</span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium mb-1">Total de activos</p>
+<h3 class="text-4xl font-black text-on-surface">1,284</h3>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant/10 relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-secondary/5 rounded-full group-hover:scale-110 transition-transform duration-500"></div>
+<div class="flex items-start justify-between mb-4">
+<div class="p-3 bg-secondary-container/20 rounded-xl text-secondary">
+<span class="material-symbols-outlined text-3xl" data-icon="person_check">person_check</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-secondary">65% del total</span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium mb-1">Asignados</p>
+<h3 class="text-4xl font-black text-on-surface">842</h3>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant/10 relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-tertiary/5 rounded-full group-hover:scale-110 transition-transform duration-500"></div>
+<div class="flex items-start justify-between mb-4">
+<div class="p-3 bg-tertiary-container/10 rounded-xl text-tertiary">
+<span class="material-symbols-outlined text-3xl" data-icon="build_circle">build_circle</span>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-widest text-tertiary">Atención requerida</span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium mb-1">En mantenimiento</p>
+<h3 class="text-4xl font-black text-on-surface">24</h3>
+</div>
+</div>
+<!-- Toolbar / Filters -->
+<div class="bg-surface-container-low p-4 rounded-2xl flex flex-wrap items-center gap-4 mb-6">
+<div class="flex-1 min-w-[240px]">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm" data-icon="filter_list">filter_list</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-lowest border-none rounded-lg text-sm focus:ring-1 focus:ring-primary/20" placeholder="Filtrar por nombre o etiqueta..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<select class="bg-surface-container-lowest border-none text-sm rounded-lg py-2 pl-3 pr-8 focus:ring-1 focus:ring-primary/20 text-on-surface-variant">
+<option>Categoría: Todas</option>
+<option>Hardware</option>
+<option>Mobiliario</option>
+<option>Vehículos</option>
+</select>
+<select class="bg-surface-container-lowest border-none text-sm rounded-lg py-2 pl-3 pr-8 focus:ring-1 focus:ring-primary/20 text-on-surface-variant">
+<option>Estado: Todos</option>
+<option>Disponible</option>
+<option>Asignado</option>
+<option>Mantenimiento</option>
+<option>Baja</option>
+</select>
+<select class="bg-surface-container-lowest border-none text-sm rounded-lg py-2 pl-3 pr-8 focus:ring-1 focus:ring-primary/20 text-on-surface-variant">
+<option>Ubicación: Todas</option>
+<option>Sede Central</option>
+<option>Almacén Norte</option>
+<option>Oficina Remota</option>
+</select>
+</div>
+<button class="bg-surface-container-highest p-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="file_download">file_download</span>
+</button>
+</div>
+<!-- Modern Data Table -->
+<div class="bg-surface-container-lowest rounded-3xl overflow-hidden shadow-sm border border-outline-variant/10">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/10">
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Nombre del Activo</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Código/ID</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Categoría</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Estado</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Ubicación</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Asignado a</th>
+<th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/5">
+<tr class="hover:bg-surface-container-low/50 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-lg object-cover" data-alt="sleek modern silver laptop computer on a white desk workspace with minimalist aesthetic and bright natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6FtO3faeVVZjUKT_nRWP-W3_vPJ3IzuYKptwj4CZYFkfETb8EVBiPTpeg7dp_OTkdHgnMRL5vurBeJrOvXA14lIiGGvDI3J79048MSXNWMkOEfO2pk1F5R_9UBsA1FqT6HMlXYm_6noDhBnQ5dT2FS79eNF7WWEzSuomwD7NR2eLbTfiKh28ehFaq7xAqmcWo47YoMYPwEMug9yKWk79AV8lrYGxTInK8Tenx7uMGrPWgixPuLiZf4e6iOPwA-d2UZoaFGemnlY8"/>
+<div>
+<p class="text-sm font-bold text-on-surface">MacBook Pro M2</p>
+<p class="text-xs text-on-surface-variant">14-inch, Space Gray</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-mono bg-surface-container-low px-2 py-1 rounded">HW-2024-001</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-medium text-on-surface-variant">Hardware</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-secondary-container/40 text-on-secondary-container">
+                                        Asignado
+                                    </span>
+</td>
+<td class="px-6 py-4 text-xs text-on-surface-variant">Sede Central - Piso 4</td>
+<td class="px-6 py-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 rounded-full bg-primary-fixed-dim flex items-center justify-center text-[10px] font-bold">JD</div>
+<span class="text-xs font-medium">Juan Delgado</span>
+</div>
+</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-2 text-primary hover:bg-primary/5 rounded-lg"><span class="material-symbols-outlined text-sm" data-icon="visibility">visibility</span></button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg"><span class="material-symbols-outlined text-sm" data-icon="edit">edit</span></button>
+<button class="p-2 text-error hover:bg-error/5 rounded-lg"><span class="material-symbols-outlined text-sm" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-lg object-cover" data-alt="professional ergonomic office chair with black mesh backrest and silver metal legs against a light grey wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6WHbWMjjYHFlmIDo5Cb057MQc1wUg6OBj5c69krB41hHwK7JkjQC2Pp39_K-5VtGFl_epKQTAxX_VaatxHdUgFxe0TKqEh37umGqb0pBm6cmyEhzlQQ8qXJaJBlQvzmYzF3vS8N1c1m_4mSE_2FFlQoxqqDvuZJFvBzgFHArObo0AAKdrFWCtklyFFx5iSphLdtaMz5zxRSaWA84lBK6kAOKH2yAp5DAmfgSp9pWcTeukkRRbDUb0zLL9FUwOKoSbZtWJIL0AqRc"/>
+<div>
+<p class="text-sm font-bold text-on-surface">Silla Ergonómica Herman M.</p>
+<p class="text-xs text-on-surface-variant">Modelo Aeron - Graphite</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-mono bg-surface-container-low px-2 py-1 rounded">MB-2023-452</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-medium text-on-surface-variant">Mobiliario</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary-container/20 text-primary">
+                                        Disponible
+                                    </span>
+</td>
+<td class="px-6 py-4 text-xs text-on-surface-variant">Almacén Norte</td>
+<td class="px-6 py-4 text-xs text-on-surface-variant opacity-40">Sin asignar</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-2 text-primary hover:bg-primary/5 rounded-lg"><span class="material-symbols-outlined text-sm" data-icon="visibility">visibility</span></button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg"><span class="material-symbols-outlined text-sm" data-icon="edit">edit</span></button>
+<button class="p-2 text-error hover:bg-error/5 rounded-lg"><span class="material-symbols-outlined text-sm" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-lg object-cover" data-alt="modern multifunction office laser printer in a bright workspace with minimal clutter and professional atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD21S76ciE7sc8Pli9mvU8xFcjFS3KeAW3obeIY1_vrZR-QfqnXUEmzBOho4YN2c9Qxa_WdfNKHDjsh50SfWWr0E5G2ijOzceB7_XAW9Kke1p9Qlaqm7f9NeajtMUSi1_Y6VTXjZhywjSxGoc6lYH6HgfgzW_Z8Hmt9y6rUhyf6Odgbio544TikJihdCFQvS1BcX0fsh94RJujB4yIqowKgFgVoQ8j2RMrN7Ftb3SjzSdjeDTGQqwBnbl1SAQUdTq-mSSaWT6phn_I"/>
+<div>
+<p class="text-sm font-bold text-on-surface">Impresora Láser HP</p>
+<p class="text-xs text-on-surface-variant">Enterprise M507dn</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-mono bg-surface-container-low px-2 py-1 rounded">HW-2022-129</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-medium text-on-surface-variant">Hardware</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-tertiary-container/30 text-tertiary">
+                                        Mantenimiento
+                                    </span>
+</td>
+<td class="px-6 py-4 text-xs text-on-surface-variant">Sede Central - Piso 2</td>
+<td class="px-6 py-4 text-xs text-on-surface-variant italic">Dpto. IT</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-2 text-primary hover:bg-primary/5 rounded-lg"><span class="material-symbols-outlined text-sm" data-icon="visibility">visibility</span></button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg"><span class="material-symbols-outlined text-sm" data-icon="edit">edit</span></button>
+<button class="p-2 text-error hover:bg-error/5 rounded-lg"><span class="material-symbols-outlined text-sm" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-lg object-cover" data-alt="close-up of an old white office telephone with physical buttons and a small digital screen on a clean workspace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSNFJuWv55VKelkb9KDOomkyxfXuOcIUbUv_1xAVUva7WDDQDVR-y_6CnoTI5K3oOZopg8GQFKvBSzJ5UHF1R_p0a34c1XV3Mqz_u3xjxp4RoFpgmQfBl05FETQTx07h2a29y_EVeTGv2ZIMfkRsVBZPxftzVSzEnUHoZxE9nlkYdm_P6v5Q6rK4SABVv_XC_j1be0IeyE47QRfiMXAB-shxHFZaorluvGqIj1zF66pl5hWktBHr2qyVSTEN9fRKztImPykYNTbzk"/>
+<div>
+<p class="text-sm font-bold text-on-surface">Teléfono IP Cisco</p>
+<p class="text-xs text-on-surface-variant">Unified IP Phone 8841</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-mono bg-surface-container-low px-2 py-1 rounded">HW-2020-881</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-xs font-medium text-on-surface-variant">Hardware</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-error-container text-error">
+                                        Baja
+                                    </span>
+</td>
+<td class="px-6 py-4 text-xs text-on-surface-variant">Archivo Muerto</td>
+<td class="px-6 py-4 text-xs text-on-surface-variant opacity-40">—</td>
+<td class="px-6 py-4 text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-2 text-primary hover:bg-primary/5 rounded-lg"><span class="material-symbols-outlined text-sm" data-icon="visibility">visibility</span></button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg"><span class="material-symbols-outlined text-sm" data-icon="edit">edit</span></button>
+<button class="p-2 text-error hover:bg-error/5 rounded-lg"><span class="material-symbols-outlined text-sm" data-icon="delete">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination -->
+<div class="flex flex-col sm:flex-row items-center justify-between px-6 py-4 border-t border-outline-variant/10 gap-4">
+<p class="text-xs text-on-surface-variant">Mostrando 1 a 10 de 1,284 activos</p>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container-low text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary text-on-primary text-xs font-bold">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container-low text-xs font-medium">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container-low text-xs font-medium">3</button>
+<span class="px-1 text-on-surface-variant">...</span>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container-low text-xs font-medium">129</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-surface-container-low text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const linkBase =
@@ -7,6 +7,17 @@ const linkInactive = "text-slate-700 dark:text-slate-300";
 const linkActive = "text-primary";
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const navLinks = [
+    { to: "/", label: "Inicio", end: true },
+    { to: "/toolkit", label: "Toolkit" },
+    { to: "/servicios", label: "Servicios" },
+    { to: "/proceso", label: "Proceso" },
+    { to: "/proyectos", label: "Proyectos" },
+    { to: "/contacto", label: "Contacto" },
+  ];
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 h-20 flex items-center border-b border-slate-400/35 bg-white/75 dark:bg-[#101c22]/70 backdrop-blur-[12px]">
       <div className="max-w-[1200px] mx-auto w-full px-6 flex items-center justify-between">
@@ -22,60 +33,18 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex gap-6 items-center">
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              `${linkBase} ${isActive ? linkActive : linkInactive}`
-            }
-            end
-          >
-            Inicio
-          </NavLink>
-
-          <NavLink
-            to="/toolkit"
-            className={({ isActive }) =>
-              `${linkBase} ${isActive ? linkActive : linkInactive}`
-            }
-          >
-            Toolkit
-          </NavLink>
-
-          <NavLink
-            to="/servicios"
-            className={({ isActive }) =>
-              `${linkBase} ${isActive ? linkActive : linkInactive}`
-            }
-          >
-            Servicios
-          </NavLink>
-
-          <NavLink
-            to="/proceso"
-            className={({ isActive }) =>
-              `${linkBase} ${isActive ? linkActive : linkInactive}`
-            }
-          >
-            Proceso
-          </NavLink>
-
-          <NavLink
-            to="/proyectos"
-            className={({ isActive }) =>
-              `${linkBase} ${isActive ? linkActive : linkInactive}`
-            }
-          >
-            Proyectos
-          </NavLink>
-
-          <NavLink
-            to="/contacto"
-            className={({ isActive }) =>
-              `${linkBase} ${isActive ? linkActive : linkInactive}`
-            }
-          >
-            Contacto
-          </NavLink>
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.to}
+              to={link.to}
+              className={({ isActive }) =>
+                `${linkBase} ${isActive ? linkActive : linkInactive}`
+              }
+              end={link.end}
+            >
+              {link.label}
+            </NavLink>
+          ))}
         </nav>
 
         {/* CTA (desktop) */}
@@ -86,15 +55,42 @@ export default function Navbar() {
           Cotizar
         </NavLink>
 
-        {/* Mobile CTA */}
-        <NavLink
-          to="/contacto"
-          className="md:hidden inline-flex items-center justify-center h-10 px-4 rounded-full bg-[#13a4ec] text-white font-extrabold text-sm shadow-[0_0_20px_rgba(19,164,236,0.45)]"
+        {/* Mobile menu button */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden flex flex-col gap-1.5"
         >
-          Cotizar
-        </NavLink>
+          <span className={`w-6 h-0.5 bg-slate-900 dark:bg-white transition ${isOpen ? "rotate-45 translate-y-2" : ""}`}></span>
+          <span className={`w-6 h-0.5 bg-slate-900 dark:bg-white transition ${isOpen ? "opacity-0" : ""}`}></span>
+          <span className={`w-6 h-0.5 bg-slate-900 dark:bg-white transition ${isOpen ? "-rotate-45 -translate-y-2" : ""}`}></span>
+        </button>
+
+        {/* Mobile menu */}
+        {isOpen && (
+          <nav className="md:hidden absolute top-20 left-0 right-0 bg-white dark:bg-[#101c22] border-b border-slate-400/35 flex flex-col p-6 gap-4">
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                onClick={() => setIsOpen(false)}
+                className={({ isActive }) =>
+                  `${linkBase} ${isActive ? linkActive : linkInactive}`
+                }
+                end={link.end}
+              >
+                {link.label}
+              </NavLink>
+            ))}
+            <NavLink
+              to="/contacto"
+              onClick={() => setIsOpen(false)}
+              className="inline-flex h-10 px-5 items-center justify-center rounded-full bg-[#13a4ec] text-white font-extrabold text-sm shadow-[0_0_20px_rgba(19,164,236,0.45)]"
+            >
+              Cotizar
+            </NavLink>
+          </nav>
+        )}
       </div>
     </header>
   );
 }
-  

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Asignaciones | AssetFlow</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#f2f4f6",
+                        "outline-variant": "#bbcabf",
+                        "on-secondary-fixed": "#002113",
+                        "on-primary-container": "#00422b",
+                        "on-primary-fixed": "#002113",
+                        "surface-container": "#eceef0",
+                        "secondary": "#376850",
+                        "on-surface-variant": "#3c4a42",
+                        "tertiary-fixed": "#ffdad7",
+                        "secondary-container": "#b7ebce",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#2d3133",
+                        "tertiary-fixed-dim": "#ffb3af",
+                        "primary-fixed-dim": "#4edea3",
+                        "outline": "#6c7a71",
+                        "on-tertiary-fixed-variant": "#842225",
+                        "surface-bright": "#f7f9fb",
+                        "inverse-primary": "#4edea3",
+                        "background": "#f7f9fb",
+                        "on-secondary-fixed-variant": "#1e4f3a",
+                        "surface": "#f7f9fb",
+                        "secondary-fixed-dim": "#9ed2b5",
+                        "tertiary-container": "#fc7c78",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#6ffbbe",
+                        "on-primary-fixed-variant": "#005236",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e0e3e5",
+                        "surface-dim": "#d8dadc",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#baeed1",
+                        "on-background": "#191c1e",
+                        "surface-container-high": "#e6e8ea",
+                        "inverse-on-surface": "#eff1f3",
+                        "tertiary": "#a43a3a",
+                        "surface-tint": "#006c49",
+                        "on-surface": "#191c1e",
+                        "primary-container": "#10b981",
+                        "on-secondary-container": "#3c6c54",
+                        "on-tertiary-fixed": "#410005",
+                        "on-primary": "#ffffff",
+                        "primary": "#006c49",
+                        "on-tertiary-container": "#711419",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e0e3e5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- SideNavBar (Authority: JSON) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-4 gap-2 bg-surface-container-low dark:bg-slate-950 h-screen w-64 border-r-0 z-50">
+<div class="flex items-center gap-3 px-2 mb-8 mt-2">
+<div class="w-10 h-10 bg-primary-container rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+</div>
+<div>
+<h1 class="text-lg font-black text-on-surface dark:text-white leading-none">Inventory Pro</h1>
+<p class="text-[10px] uppercase tracking-wider text-on-surface-variant mt-1">Enterprise Management</p>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary hover:translate-x-1 duration-200 group" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-xs font-bold uppercase tracking-[0.05em]">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary hover:translate-x-1 duration-200 group" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="text-xs font-bold uppercase tracking-[0.05em]">Activos</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-primary bg-surface-container-lowest dark:bg-slate-900 font-bold rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="person_add" style="font-variation-settings: 'FILL' 1;">person_add</span>
+<span class="text-xs font-bold uppercase tracking-[0.05em]">Asignaciones</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary hover:translate-x-1 duration-200 group" href="#">
+<span class="material-symbols-outlined" data-icon="build">build</span>
+<span class="text-xs font-bold uppercase tracking-[0.05em]">Mantenimiento</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary hover:translate-x-1 duration-200 group" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="text-xs font-bold uppercase tracking-[0.05em]">Reportes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary hover:translate-x-1 duration-200 group" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-xs font-bold uppercase tracking-[0.05em]">Configuración</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-outline-variant/10 pt-4 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-primary hover:translate-x-1 duration-200 group" href="#">
+<span class="material-symbols-outlined" data-icon="contact_support">contact_support</span>
+<span class="text-xs font-bold uppercase tracking-[0.05em]">Support</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-error hover:translate-x-1 duration-200 group" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-xs font-bold uppercase tracking-[0.05em]">Log out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen">
+<!-- TopAppBar (Authority: JSON) -->
+<header class="sticky top-0 z-40 flex justify-between items-center px-8 w-full h-16 bg-[#ffffff]/80 backdrop-blur-xl dark:bg-slate-900/80">
+<div class="flex items-center gap-4">
+<span class="text-xl font-bold tracking-tight text-on-surface">Asignaciones</span>
+<div class="h-4 w-px bg-outline-variant/30"></div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="bg-surface-container-low border-none rounded-full py-1.5 pl-9 pr-4 text-sm w-64 focus:ring-2 focus:ring-primary-container transition-all" placeholder="Buscar asignación..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-surface-container transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden ml-2 ring-2 ring-primary-container/20">
+<img class="w-full h-full object-cover" data-alt="Close up portrait of a professional system administrator in a clean office setting, soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRjPZNv47SP2Wym20Bb5wW8pZgOgzog1rneCDWi0PJ5njjCmrQjDZ6erG1i4ABw-GuRX1twvte7BEGxplFdzrlp6AvbxE0qwt9dtk_IHaMQqFFQKiPb1JDBM_jwtc5_7CZxfq8Kakn7BYKyTlCmb-9QGLC2lH6mWd1QpQFV7BKcjK6YiZucjQne0Ske9XezEXxcxMzmMF_fmZkj2HUhj5qUm0w9xATyifZdosf2aEN37tNQAMSoi3z184BhkFEtz1WqzLtDkMksTk"/>
+</div>
+</div>
+</header>
+<!-- View Content -->
+<div class="p-8">
+<!-- Header Section -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-primary mb-1">Gestión de Flota</p>
+<h2 class="text-3xl font-extrabold tracking-tight text-on-surface">Control de Asignaciones</h2>
+</div>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-3 rounded-xl font-bold flex items-center gap-2 shadow-lg shadow-primary-container/20 hover:scale-[1.02] active:scale-95 transition-all">
+<span class="material-symbols-outlined text-lg">add_circle</span>
+                    Nueva Asignación
+                </button>
+</div>
+<!-- Bento Summary Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/5 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-secondary-container/30 rounded-lg">
+<span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: 'FILL' 1;">inventory</span>
+</div>
+<span class="text-[10px] font-black bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full uppercase tracking-tighter">+4.2%</span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium">Activos Asignados</p>
+<h3 class="text-4xl font-black text-on-surface mt-1">412</h3>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary-container/10 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-primary-container/20 rounded-lg">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">assignment_return</span>
+</div>
+<span class="text-[10px] font-black bg-surface-container text-on-surface-variant px-2 py-0.5 rounded-full uppercase tracking-tighter">Promedio</span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium">Pendientes de Devolución</p>
+<h3 class="text-4xl font-black text-on-surface mt-1">58</h3>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-error/5 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="p-3 bg-error-container/40 rounded-lg">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">history_toggle_off</span>
+</div>
+<span class="text-[10px] font-black bg-error text-on-error px-2 py-0.5 rounded-full uppercase tracking-tighter">Atención</span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium">Retrasados</p>
+<h3 class="text-4xl font-black text-error mt-1">12</h3>
+</div>
+</div>
+<!-- Table Section -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden">
+<div class="px-8 py-6 flex justify-between items-center border-b border-outline-variant/10">
+<h3 class="font-extrabold text-lg text-on-surface">Asignaciones Recientes</h3>
+<div class="flex gap-2">
+<button class="px-4 py-2 text-xs font-bold uppercase tracking-widest text-on-surface-variant bg-surface-container-low rounded-lg hover:bg-surface-container transition-colors">Filtrar</button>
+<button class="px-4 py-2 text-xs font-bold uppercase tracking-widest text-on-surface-variant bg-surface-container-low rounded-lg hover:bg-surface-container transition-colors">Exportar</button>
+</div>
+</div>
+<table class="w-full text-left">
+<thead class="bg-surface-container-low/50">
+<tr>
+<th class="px-8 py-4 text-[11px] font-black uppercase tracking-widest text-on-surface-variant">Activo</th>
+<th class="px-8 py-4 text-[11px] font-black uppercase tracking-widest text-on-surface-variant">Usuario</th>
+<th class="px-8 py-4 text-[11px] font-black uppercase tracking-widest text-on-surface-variant">Fecha Asignación</th>
+<th class="px-8 py-4 text-[11px] font-black uppercase tracking-widest text-on-surface-variant">Fecha Devolución</th>
+<th class="px-8 py-4 text-[11px] font-black uppercase tracking-widest text-on-surface-variant">Estado</th>
+<th class="px-8 py-4 text-[11px] font-black uppercase tracking-widest text-on-surface-variant text-right">Acciones</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="High-end silver laptop on a minimalist white desk, clean overhead photography, professional studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgW1En4w7wMU4rkmgn6U8i2Sxn-5rH-DmuTrq_J9QfvTUnTpnHs639TfoXQVX9EltJDtC3ZHPIE8sQO9uX1SinZxjVUrwfn6HIji1BPeOSYnstscocnK6vR3BVDfL2xdn9J9tmTVDZI-G7g3YEVUAWmtycxmxe4cqi0hrIUwj_IFFnWEFPatCcupYuIziMiY8uVNXgLM53aG9KWcdt-BtFzl7HNnkHJcRE0WAeGZo0sZyXR2Edy1dhswbWzWfoGUdT7m3bMyyael4"/>
+</div>
+<div>
+<p class="font-bold text-on-surface text-sm">MacBook Pro M3 14"</p>
+<p class="text-[10px] text-on-surface-variant font-medium">SKU: LAP-8842</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full border border-outline-variant/20" data-alt="Professional man with glasses in a modern office, soft focus corporate background, high-end photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeBT7_6qRqXW8McY6WY3yaAO7cjm93bUwqgIzOYIyEREo5ASj9k5mUAvgoBCxDQZ-XWIpiwrUozsNULCug7x3zkSkjg59bKmyqEZLO1FBUgK8vpodj9uq1RjuMcD89gzzOWBGowPQd39RF9ncW2dIGC_RKu0vgOfRair2u6YO5iHOIC1fH2tUcLgHyV0GnXaeP9FC0aRY0XsETqTor1a4vG7FF5S_noAilfrOAP4pBVcRCFT-N-a6bFJPJyoa1UD03jnMU5dp-0To"/>
+<p class="text-sm font-semibold text-on-surface">Carlos Mendoza</p>
+</div>
+</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">Oct 12, 2023</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">Abr 12, 2024</td>
+<td class="px-8 py-5">
+<span class="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter bg-secondary-container text-on-secondary-container">Entregado</span>
+</td>
+<td class="px-8 py-5 text-right">
+<div class="flex justify-end gap-1">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors hover:bg-primary-container/10 rounded-lg">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors hover:bg-primary-container/10 rounded-lg">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Sleek black tablet with stylus on a minimalist wood table, soft window light, professional aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJAbuIWlsXCjeo15BkxfLaLskGkZJ-boAJBMrojOdWKgmUbKaJu82833kUjzn5QBQ6EdnxU34cOKUafNteZiMf2qMpvCfUpU4GtamVsGT-W9rxC_BCK6cfPP2vhD5iSsXEFm7hTREpxWsYRPYpr3_gcBMO8bM82QHzcgkNLcvZ0BN_5PNVYQqNuA0PzYSHEJlSsPfvdFyMMLZOrGv5UOjPfbiwPVCHXB48SmG85tI3fnVbM20UBYAh5B6PrDIkxWoqSNNvUdqcdIw"/>
+</div>
+<div>
+<p class="font-bold text-on-surface text-sm">iPad Pro 12.9"</p>
+<p class="text-[10px] text-on-surface-variant font-medium">SKU: TAB-1102</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full border border-outline-variant/20" data-alt="Professional woman smiling, bright modern office background, soft cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFFAUkLNtu1Ieplqe8uVnGXfgyH0FM6_Mb8MzENN91o9E8MOskxuF-cxhGyqABpUmokAzXIXekeu1DkiaIkAE2Ef6IIDM09KjktKhZbb0hgCl5KlJw3j-RIPyPe3UcIBzAYbeyjNoP_RzWZ6Ey3dSC908rU-LwWP74AFP83fUJlo-pBlWWluGAAn7jcSehIbwy8v9z1Xc2OQ4qH9Z1ISm4YxbwBAOzQ4uVpQRWNBz4XsL8WgGAKCbao4R93Snm8RdhpHOtDGdtzew"/>
+<p class="text-sm font-semibold text-on-surface">Ana Guerrero</p>
+</div>
+</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">Dic 05, 2023</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">Jun 05, 2024</td>
+<td class="px-8 py-5">
+<span class="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter bg-surface-container-high text-on-surface-variant">Pendiente</span>
+</td>
+<td class="px-8 py-5 text-right">
+<div class="flex justify-end gap-1">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors hover:bg-primary-container/10 rounded-lg">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors hover:bg-primary-container/10 rounded-lg">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 (Delayed) -->
+<tr class="hover:bg-surface-container-low/30 transition-colors group">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="High-end noise cancelling headphones on a clean marble surface, elegant lighting, product photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBwEXTSfjCnpcoeqtLVIR3oz_0V5vVmhPpbDQrNpaihhYBloNvj9o-W_K4RVwyqctIoyaYXKH4NK4gcd1nr2sokWKHaA6AeIDYhNw72hnPMl-bWI-4PSXYlHZYinQUQ1fphsHKJn7W5R6jT8U_8L1LRfsPFfYHQAH3afrGUlo8Ukjl0rSWRXVKpHUQ_V7PjLlDroFuy79VZJZYKuEUXS2SDM5Rk4O3x08hKjj77XH6fy-P1fzvrqy7WSuqtuSggDD4kq-QabNm1FQ"/>
+</div>
+<div>
+<p class="font-bold text-on-surface text-sm">Sony WH-1000XM5</p>
+<p class="text-[10px] text-on-surface-variant font-medium">SKU: AUD-9921</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full border border-outline-variant/20" data-alt="Young professional man in casual attire, outdoor urban setting with soft focus buildings" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD46NkHr3-ols1w6xo3IMXzcagrUDfM3wUjNXZCR3YLEdsl4Jv6rWLcHIkKu1SjWm8Hjd9frMyLhnviMdIIWfDZgsjkXbKDphF6s7Ui6e7TVWZ6rNvXfZ0UAe1lGTCmnjYDKjF4oaPFZQheQf37C_9Jyex_q_dLEadMQ67itesQWzryHAfx6alWjSRcDndH3pOGK_TWqIrIB764gnFv2oQ4Umh0r327dOOVLFDTJclSD6X-pNhnPZbRsFv7THw5BoF51Af0NbZiqkQ"/>
+<p class="text-sm font-semibold text-on-surface">Julian Rojas</p>
+</div>
+</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">Ago 15, 2023</td>
+<td class="px-8 py-5 text-sm font-bold text-error">Feb 15, 2024</td>
+<td class="px-8 py-5">
+<span class="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter bg-error-container text-on-error-container">Retrasado</span>
+</td>
+<td class="px-8 py-5 text-right">
+<div class="flex justify-end gap-1">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors hover:bg-primary-container/10 rounded-lg">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors hover:bg-primary-container/10 rounded-lg">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="px-8 py-6 flex justify-between items-center bg-surface-container-low/20">
+<p class="text-xs text-on-surface-variant">Mostrando <span class="font-bold">1-10</span> de <span class="font-bold">412</span> asignaciones</p>
+<div class="flex gap-1">
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant/20 text-on-surface-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary text-on-primary font-bold text-xs">1</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant/20 text-on-surface-variant hover:bg-surface-container transition-colors text-xs">2</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant/20 text-on-surface-variant hover:bg-surface-container transition-colors text-xs">3</button>
+<button class="w-8 h-8 flex items-center justify-center rounded-lg border border-outline-variant/20 text-on-surface-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

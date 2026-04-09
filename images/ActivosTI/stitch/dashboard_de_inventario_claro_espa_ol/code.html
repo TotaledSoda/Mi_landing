@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AssetHub | Enterprise Inventory Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .tonal-shift {
+            background-color: #f2f4f6;
+        }
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-tertiary-fixed-variant": "#842225",
+                      "on-tertiary": "#ffffff",
+                      "on-tertiary-container": "#711419",
+                      "surface-container-high": "#e6e8ea",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-fixed": "#410005",
+                      "on-primary-fixed": "#002113",
+                      "on-surface": "#191c1e",
+                      "surface-container-highest": "#e0e3e5",
+                      "on-error": "#ffffff",
+                      "background": "#f7f9fb",
+                      "tertiary-container": "#fc7c78",
+                      "secondary-container": "#b7ebce",
+                      "on-primary-container": "#00422b",
+                      "on-error-container": "#93000a",
+                      "tertiary": "#a43a3a",
+                      "surface-container-lowest": "#ffffff",
+                      "outline-variant": "#bbcabf",
+                      "inverse-surface": "#2d3133",
+                      "surface-bright": "#f7f9fb",
+                      "on-secondary-fixed-variant": "#1e4f3a",
+                      "on-primary-fixed-variant": "#005236",
+                      "on-surface-variant": "#3c4a42",
+                      "on-secondary-fixed": "#002113",
+                      "surface-variant": "#e0e3e5",
+                      "outline": "#6c7a71",
+                      "secondary": "#376850",
+                      "error": "#ba1a1a",
+                      "secondary-fixed-dim": "#9ed2b5",
+                      "inverse-primary": "#4edea3",
+                      "surface-tint": "#006c49",
+                      "surface-dim": "#d8dadc",
+                      "on-secondary-container": "#3c6c54",
+                      "primary-container": "#10b981",
+                      "primary": "#006c49",
+                      "surface-container": "#eceef0",
+                      "surface-container-low": "#f2f4f6",
+                      "primary-fixed": "#6ffbbe",
+                      "secondary-fixed": "#baeed1",
+                      "on-secondary": "#ffffff",
+                      "surface": "#f7f9fb",
+                      "primary-fixed-dim": "#4edea3",
+                      "on-primary": "#ffffff",
+                      "inverse-on-surface": "#eff1f3",
+                      "on-background": "#191c1e",
+                      "tertiary-fixed": "#ffdad7",
+                      "tertiary-fixed-dim": "#ffb3af"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Plus Jakarta Sans"],
+                      "body": ["Plus Jakarta Sans"],
+                      "label": ["Plus Jakarta Sans"]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface text-on-surface">
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="flex flex-col h-full py-6 bg-slate-50 dark:bg-slate-900 h-screen w-64 border-r border-slate-200 dark:border-slate-800 font-['Plus_Jakarta_Sans'] tracking-tight sticky top-0">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined">inventory_2</span>
+</div>
+<div>
+<h1 class="text-xl font-bold text-emerald-700 dark:text-emerald-400">AssetHub</h1>
+<p class="text-xs text-on-surface-variant/70 uppercase tracking-widest">Enterprise Manager</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Dashboard Active -->
+<a class="bg-emerald-50 text-emerald-700 font-semibold rounded-lg px-4 py-3 mx-2 flex items-center gap-3 translate-x-1 transition-transform" href="#"><span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    Tablero</a>
+<a class="text-slate-500 hover:text-emerald-600 px-4 py-3 mx-2 flex items-center gap-3 hover:bg-slate-100 transition-colors duration-200" href="#"><span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                    Activos</a>
+<a class="text-slate-500 hover:text-emerald-600 px-4 py-3 mx-2 flex items-center gap-3 hover:bg-slate-100 transition-colors duration-200" href="#"><span class="material-symbols-outlined" data-icon="assignment_ind">assignment_ind</span>
+                    Asignaciones</a>
+<a class="text-slate-500 hover:text-emerald-600 px-4 py-3 mx-2 flex items-center gap-3 hover:bg-slate-100 transition-colors duration-200" href="#"><span class="material-symbols-outlined" data-icon="build">build</span>
+                    Mantenimiento</a>
+<a class="text-slate-500 hover:text-emerald-600 px-4 py-3 mx-2 flex items-center gap-3 hover:bg-slate-100 transition-colors duration-200" href="#"><span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+                    Reportes</a>
+<a class="text-slate-500 hover:text-emerald-600 px-4 py-3 mx-2 flex items-center gap-3 hover:bg-slate-100 transition-colors duration-200" href="#"><span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    Configuración</a>
+</nav>
+<div class="px-4 mt-auto">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary py-3 rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg shadow-primary/20"><span class="material-symbols-outlined text-sm">add</span>
+                    Agregar Nuevo Activo</button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 min-w-0 flex flex-col">
+<!-- TopNavBar -->
+<header class="w-full h-16 sticky top-0 z-50 glass-nav border-b border-slate-100 dark:border-slate-800 flex items-center justify-between px-8 w-full font-['Plus_Jakarta_Sans'] text-sm">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full py-2 pl-10 pr-4 focus:ring-2 focus:ring-emerald-500/20 text-on-surface transition-all" placeholder="Buscar activos, usuarios o ubicaciones..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full p-2 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+</button>
+<button class="hover:bg-slate-50 dark:hover:bg-slate-800 rounded-full p-2 text-on-surface-variant relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant/30 mx-2"></div>
+<div class="flex items-center gap-3 pl-2">
+<div class="text-right">
+<p class="font-semibold text-xs leading-none">Alex Rivera</p>
+<p class="text-[10px] text-on-surface-variant">Administrador</p>
+</div>
+<img alt="User Profile" class="w-10 h-10 rounded-full object-cover ring-2 ring-emerald-500/10" data-alt="portrait of a professional man with a friendly expression in a bright modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnius1SC-6BDpXLCwKwgd8q6rvSUTvMFmC0GiKPr1gojwDsU693mzPNtNGClAFg9za4wEdXsc2NNdTAGqInBYP5jl1wuNvIinvrkjjGK7CulAzdWs-afOTrpm4V2NOxBAsQn5mJ5fnIzmG2lZHQ3fYudRhDM9CrIerivlbk3bCTTJcfUkANSyaOxAURUO1y7JUClhkZryFbCiIhy6uImk4QcXAct7Iz0pVlldZ41NcKEA8LA3-WXEzzyMUEJIycIPSj1j_qzGxhmU"/>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-8 space-y-8 max-w-[1400px]">
+<!-- Editorial Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<p class="text-primary font-bold tracking-[0.2em] text-[10px] uppercase mb-2">Vista General Operativa</p>
+<h2 class="text-4xl font-extrabold tracking-tight text-on-surface leading-none">Panel de Control de Inventario</h2>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 rounded-lg bg-surface-container-lowest text-on-surface-variant font-medium border border-outline-variant/20 hover:bg-surface-container-high transition-colors">Exportar CSV</button>
+<button class="px-4 py-2 rounded-lg bg-primary text-on-primary font-medium hover:opacity-90 transition-opacity">Auditoría Global</button>
+</div>
+</div>
+<!-- Audit Banner -->
+<div class="bg-gradient-to-r from-primary to-primary-container rounded-2xl p-6 flex items-center justify-between shadow-xl shadow-primary/10 overflow-hidden relative">
+<div class="relative z-10 flex items-center gap-6">
+<div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white">event_upcoming</span>
+</div>
+<div>
+<h3 class="text-xl font-bold text-white leading-tight">El ciclo de auditoría comienza pronto.</h3>
+<p class="text-white/80 text-sm">La reconciliación trimestral comienza en 4 días. Por favor, asegúrate de que todos los activos estén contabilizados.</p>
+</div>
+</div>
+<button class="relative z-10 bg-white text-primary px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-emerald-50 transition-colors shadow-sm">Revisar Calendario</button>
+<!-- Abstract Background Shape -->
+<div class="absolute -right-12 -top-12 w-64 h-64 bg-white/5 rounded-full blur-3xl"></div>
+</div>
+<!-- Metric Cards: Bento Style -->
+<div class="editorial-grid">
+<div class="col-span-12 md:col-span-4 lg:col-span-3 bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/10 shadow-sm flex flex-col justify-between group hover:border-primary/20 transition-all">
+<div>
+<div class="flex justify-between items-start mb-4">
+<span class="p-3 bg-slate-100 rounded-xl text-slate-600 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined">inventory</span>
+</span>
+<span class="text-emerald-600 text-xs font-bold px-2 py-1 bg-emerald-50 rounded-full">+12%</span>
+</div>
+<h4 class="text-on-surface-variant text-sm font-medium">Total de Activos</h4>
+<p class="text-4xl font-bold mt-1 tracking-tighter">1,284</p>
+</div>
+</div>
+<div class="col-span-6 md:col-span-2 lg:col-span-2 bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/10 shadow-sm flex flex-col justify-between">
+<div class="flex items-center gap-2 mb-4">
+<div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">DISPONIBLE</span>
+</div>
+<div>
+<p class="text-2xl font-bold">842</p>
+<p class="text-xs text-on-surface-variant mt-1">65.5% de stock</p>
+</div>
+</div>
+<div class="col-span-6 md:col-span-2 lg:col-span-2 bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/10 shadow-sm flex flex-col justify-between">
+<div class="flex items-center gap-2 mb-4">
+<div class="w-2 h-2 rounded-full bg-blue-500"></div>
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">ASIGNADO</span>
+</div>
+<div>
+<p class="text-2xl font-bold text-on-surface">412</p>
+<p class="text-xs text-on-surface-variant mt-1">Despliegues</p>
+</div>
+</div>
+<div class="col-span-6 md:col-span-2 lg:col-span-2 bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/10 shadow-sm flex flex-col justify-between">
+<div class="flex items-center gap-2 mb-4">
+<div class="w-2 h-2 rounded-full bg-yellow-500"></div>
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">MANTENIMIENTO</span>
+</div>
+<div>
+<p class="text-2xl font-bold">24</p>
+<p class="text-xs text-on-surface-variant mt-1">Tickets activos</p>
+</div>
+</div>
+<div class="col-span-6 md:col-span-2 lg:col-span-3 bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant/10 shadow-sm flex flex-col justify-between">
+<div class="flex items-center gap-2 mb-4">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">DADO DE BAJA</span>
+</div>
+<div>
+<p class="text-2xl font-bold">6</p>
+<p class="text-xs text-on-surface-variant mt-1">Retirados este mes</p>
+</div>
+</div>
+</div>
+<!-- Main Layout Row -->
+<div class="editorial-grid">
+<!-- Column Left: Featured & Distribution -->
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<!-- Featured Asset Section -->
+<div class="bg-surface-container-lowest rounded-3xl overflow-hidden shadow-sm border border-outline-variant/10">
+<div class="flex flex-col md:flex-row">
+<div class="md:w-1/2 p-8 flex flex-col justify-between">
+<div>
+<div class="flex gap-2 mb-4">
+<span class="bg-emerald-100 text-emerald-700 text-[10px] font-bold px-2 py-1 rounded uppercase">NIVEL PREMIUM</span>
+<span class="bg-blue-100 text-blue-700 text-[10px] font-bold px-2 py-1 rounded uppercase">NUEVO LANZAMIENTO</span>
+</div>
+<h3 class="text-3xl font-extrabold text-on-surface leading-tight mb-2">MacBook Pro 16" (M3 Max)</h3>
+<div class="flex items-center gap-4 text-sm text-on-surface-variant mb-6">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">qr_code</span> ID: AST-9920-X</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">location_on</span> Main Campus</span>
+</div>
+<div class="p-4 bg-surface-container-low rounded-2xl border border-outline-variant/10 mb-6">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-bold text-on-surface-variant uppercase">ESTADO ACTUAL</span>
+<span class="text-emerald-600 text-xs font-bold flex items-center gap-1"><span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span> Disponible para Asignar</span>
+</div>
+<p class="text-xs text-on-surface-variant">Esta estación de trabajo de alto rendimiento está lista para ser asignada a equipos senior de diseño o ingeniería.</p>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 bg-primary text-on-primary py-3 rounded-xl font-bold text-sm hover:bg-primary/90 transition-all">Asignar a Usuario</button>
+<button class="p-3 bg-surface-container-high rounded-xl text-on-surface hover:bg-outline-variant/30 transition-all">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+</div>
+<div class="md:w-1/2 bg-slate-50 relative min-h-[300px]">
+<img alt="Featured Asset" class="absolute inset-0 w-full h-full object-cover" data-alt="top-down sleek studio shot of a space gray laptop on a minimalist white surface with soft dramatic shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8v_9RxI1fXsLxJS5FMZXwHk1QaVdXEJ8mzl9H1XxuLWt2ZLxge3uTpGcOfnD8Zy0w7tWacIKPQQR1LHcOfYi3eAfHB0IWGLhMaeivUVxuVzpYCMA9sYSnhVX8u7BAB0MaXN7Dw7AEV0a2rfI0pDr4stvAr77pSYJB9V_wxEkJESZ5b_47t0brJXU-zXErl2zyunoXVY9pRR7iLvLOSi5PDLz44YVkqePEMO54jtcFYEOnPvIZzildpHTbsIIwMf-psuNfj8VaVok"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+</div>
+</div>
+</div>
+<!-- Category Distribution -->
+<div class="bg-surface-container-lowest p-8 rounded-3xl shadow-sm border border-outline-variant/10">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-xl font-bold tracking-tight">Distribución por Categoría</h3>
+<button class="text-primary text-sm font-bold flex items-center gap-1">Ver Auditoría Completa <span class="material-symbols-outlined text-sm">chevron_right</span></button>
+</div>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-sm mb-2">
+<span class="font-medium text-on-surface">Estaciones de Trabajo</span>
+<span class="text-on-surface-variant">542 units</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 72%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-sm mb-2">
+<span class="font-medium text-on-surface">Sistemas de Pantalla</span>
+<span class="text-on-surface-variant">312 units</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-blue-500 rounded-full" style="width: 45%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-sm mb-2">
+<span class="font-medium text-on-surface">Periféricos</span>
+<span class="text-on-surface-variant">218 units</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-emerald-400 rounded-full" style="width: 32%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-sm mb-2">
+<span class="font-medium text-on-surface">Dispositivos Móviles</span>
+<span class="text-on-surface-variant">154 units</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-tertiary rounded-full" style="width: 24%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Column Right: Status & Recent -->
+<div class="col-span-12 lg:col-span-4 space-y-8">
+<!-- Status Health Card -->
+<div class="bg-surface-container-lowest p-8 rounded-3xl shadow-sm border border-outline-variant/10 relative overflow-hidden">
+<h3 class="text-xl font-bold tracking-tight mb-6">Salud del Inventario</h3>
+<div class="flex flex-col items-center">
+<div class="relative w-48 h-48 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 100 100">
+<circle class="text-slate-100" cx="50" cy="50" fill="transparent" r="45" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-emerald-500" cx="50" cy="50" fill="transparent" r="45" stroke="currentColor" stroke-dasharray="282.7" stroke-dashoffset="17" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-4xl font-extrabold tracking-tighter">94%</span>
+<span class="text-[10px] font-bold text-emerald-600 uppercase">ACTIVO</span>
+</div>
+</div>
+<div class="mt-8 grid grid-cols-2 gap-4 w-full">
+<div class="p-3 bg-surface-container-low rounded-xl text-center">
+<p class="text-[10px] text-on-surface-variant font-bold uppercase">TIEMPO DE ACTIVIDAD</p>
+<p class="text-lg font-bold">99.8%</p>
+</div>
+<div class="p-3 bg-surface-container-low rounded-xl text-center">
+<p class="text-[10px] text-on-surface-variant font-bold uppercase">CUMPLIMIENTO</p>
+<p class="text-lg font-bold">100%</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Activity -->
+<div class="bg-surface-container-lowest p-8 rounded-3xl shadow-sm border border-outline-variant/10">
+<h3 class="text-xl font-bold tracking-tight mb-6">Actividad Reciente</h3>
+<div class="space-y-6">
+<!-- Activity 1 -->
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">NIVEL PREMIUM</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm text-on-surface"><span class="font-bold">MacBook Pro M3</span> asignado a Sarah Jenkins</p>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-[10px] text-emerald-600 font-bold bg-emerald-50 px-1.5 py-0.5 rounded">Éxito</span>
+<span class="text-[10px] text-on-surface-variant">2h ago</span>
+</div>
+</div>
+</div>
+<!-- Activity 2 -->
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-yellow-100 text-yellow-600 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-xl">build</span>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm text-on-surface"><span class="font-bold">Dell UltraSharp 32"</span> enviado a Mantenimiento</p>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-[10px] text-yellow-600 font-bold bg-yellow-50 px-1.5 py-0.5 rounded">Pendiente</span>
+<span class="text-[10px] text-on-surface-variant">5h ago</span>
+</div>
+</div>
+</div>
+<!-- Activity 3 -->
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">NUEVO LANZAMIENTO</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm text-on-surface"><span class="font-bold">Magic Keyboard</span> devuelto por Marcus Thorne</p>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-[10px] text-blue-600 font-bold bg-blue-50 px-1.5 py-0.5 rounded">Recibido</span>
+<span class="text-[10px] text-on-surface-variant">Yesterday</span>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 py-3 text-sm font-bold text-on-surface-variant hover:text-primary transition-colors border-t border-outline-variant/10">Ver Todo el Historial</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
