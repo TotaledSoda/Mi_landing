@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
-import Toolkit from "./pages/Toolkit";
+import Toolkit from "./pages/ToolKit";
 import Contacto from "./pages/Contacto";
 import Servicios from "./pages/Servicios";
 import Proceso from  "./pages/Proceso";
@@ -14,7 +14,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/toolkit" element={<Toolkit />} />
+        <Route path="/toolkit" element={<ToolKit />} />
         <Route path="/servicios" element={<Servicios />} />
         <Route path="/proceso" element={<Proceso />} />
         <Route path="/proyectos" element={<Proyectos />} />
