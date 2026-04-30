@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
-import Toolkit from "./pages/ToolKit";
+import ToolKit from "./pages/ToolKit";
 import Contacto from "./pages/Contacto";
 import Servicios from "./pages/Servicios";
 import Proceso from  "./pages/Proceso";
